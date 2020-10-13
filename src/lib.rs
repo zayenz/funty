@@ -322,7 +322,7 @@ pub trait IsInteger:
 	/// The type’s maximum value.
 	const MAX: Self;
 
-	/// THe type's widht in number of bits
+	/// THe type's width in number of bits
 	const BITS: Self;
 
 	/// Returns the smallest value that can be represented by this integer type.
@@ -494,7 +494,7 @@ pub trait IsInteger:
 	/// This function will panic if `rhs` is 0.
 	fn wrapping_div(self, rhs: Self) -> Self;
 
-	/// Wrapping Eulidean division. Computes `self.div_euclid(rhs)`, wrapping
+	/// Wrapping Euclidean division. Computes `self.div_euclid(rhs)`, wrapping
 	/// around at the boundary of the type.
 	///
 	/// # Signed Types
