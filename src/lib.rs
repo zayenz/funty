@@ -313,6 +313,9 @@ pub trait IsInteger:
 	/// The type’s zero value.
 	const ZERO: Self;
 
+	/// The type’s one value.
+	const ONE: Self;
+
 	/// The type’s minimum value. This is zero for unsigned integers.
 	const MIN: Self;
 
@@ -1300,6 +1303,7 @@ macro_rules! impl_for {
 	( IsInteger => $($t:ty),+ $(,)? ) => { $(
 		impl IsInteger for $t {
 			const ZERO: Self = 0;
+			const ONE: Self = 1 as Self;
 			const MIN: Self = <Self>::min_value();
 			const MAX: Self = <Self>::max_value();
 			const BITS: Self = (std::mem::size_of::<Self>() as Self) * (8 as Self);
