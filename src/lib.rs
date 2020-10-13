@@ -319,6 +319,9 @@ pub trait IsInteger:
 	/// The type’s maximum value.
 	const MAX: Self;
 
+	/// THe type's widht in number of bits
+	const BITS: Self;
+
 	/// Returns the smallest value that can be represented by this integer type.
 	fn min_value() -> Self;
 
@@ -1299,6 +1302,7 @@ macro_rules! impl_for {
 			const ZERO: Self = 0;
 			const MIN: Self = <Self>::min_value();
 			const MAX: Self = <Self>::max_value();
+			const BITS: Self = (std::mem::size_of::<Self>() as Self) * (8 as Self);
 
 			func!(min_value() -> Self);
 			func!(max_value() -> Self);
